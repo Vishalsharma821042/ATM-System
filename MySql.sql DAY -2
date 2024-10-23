@@ -1,0 +1,26 @@
+-- Step 1: Create a new SQLite database (this is done outside SQL commands)
+-- For example, in terminal or command prompt: sqlite3 user_balance.db
+
+-- Step 2: Create the users table
+create table if not exists users (
+    id integer primary key AUTOINCREMENT,
+    username text not null,
+    balance real not null
+);
+
+-- Step 3: Insert records of different users with balance
+insert into users (username, balance) values ('Vishal', 100.0);
+insert into users (username, balance) values ('Prithi', 250.0);
+insert into users (username, balance) values ('Aman', 300.5);
+
+-- Step 4: Fetch all records from the users table
+select * from users;
+
+-- Step 5: Update the balance for a specific user (e.g., vishal)
+UPDATE users SET balance = 150.0 WHERE username = 'vishal';
+
+-- Step 6: Delete a user from the table (e.g., prithi)
+DELETE FROM users WHERE username = 'prithi';
+
+-- Step 7: Fetch all records again to see the changes
+SELECT * FROM users;
